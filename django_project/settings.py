@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,19 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "prajwal.un16@gmail.com"
+EMAIL_HOST_PASSWORD = "mkpmpldkevvrkmwe"
+
+AWS_ACCESS_KEY_ID = "AKIAQVFIW6PWK7SDPSEP"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "djangoproject-blogfiles"
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
