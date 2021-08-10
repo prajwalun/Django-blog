@@ -22,7 +22,7 @@ SECRET_KEY = 'exhlfdat&vfum(-34*c2uroi(($ww(yo$9pv98=e6p^gl(-eoj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mydjangoblog-app.herokuapp.com']
 
 
 # Application definition
@@ -117,7 +117,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -132,12 +132,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "prajwal.un16@gmail.com"
-EMAIL_HOST_PASSWORD = "mkpmpldkevvrkmwe"
+EMAIL_HOST_USER = os.environ.get('HOSTEMAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('HOSTPASS')
 
-AWS_ACCESS_KEY_ID = "AKIAQVFIW6PWK7SDPSEP"
-AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORAGE_BUCKET_NAME = "djangoproject-blogfiles"
+AWS_ACCESS_KEY_ID = os.environ.get('AWSKEYID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWSSECRETKEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWSBUCKETNAME')
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
